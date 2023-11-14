@@ -1,0 +1,171 @@
+
+
+
+
+
+/* .menu img {
+  height: 50px;
+  height: 50px;
+  align-items: left;
+  padding-left: 0px;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index:19;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background-color: #009FE3;
+  box-shadow: 0 4px 2px rgba(0, 0, 0, 0.1);
+}
+
+.menu ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  height: 70px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+}
+
+.menu a:hover {
+  background-color: #ddd;
+}
+.menu img{
+background-image: url("");
+background-repeat: no-repeat;
+}
+
+
+body{
+  background-color: #009FE3;
+}
+
+
+
+
+#content{
+    text-align: center;
+    margin-top: 20px; 
+
+    margin-right: 20px;
+    margin-left: 50px;
+    margin-top: 60px; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    background-color: rgba(253, 253, 253, 0.8); 
+}
+
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-right: 20px;
+    margin-left: 50px;
+    margin-top: 60px; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    background-color: rgba(0, 4, 255, 0.8); 
+}
+
+.form-container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-right: 20px;
+    margin-left: 50px;
+    margin-top: 60px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+table {
+    font-family: arial;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px; 
+}
+
+td, th {
+    border: 1px solid #000000;
+    text-align: left;
+    padding: 15px; 
+}
+
+tr:hover {
+    background-color: white;
+} */
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
+  background-image: url("https://images5.alphacoders.com/114/thumb-1920-1141137.jpg");
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+ 
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  text-align: center;
+}
+h2{
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  padding: 5px;
+  width: 200px;
+}
+
+input[type="submit"] {
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.message {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}

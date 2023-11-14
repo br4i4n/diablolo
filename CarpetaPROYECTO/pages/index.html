@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<script defer src="javascript/usuario.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet" href="estilos2.css">
+<script defer src="funciones.js"></script>
+<script defer src="funciones2.js"></script>
+
+<!--Apartado de la cabecera de la pagina-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PaginaWEB de UTU</title>
+  <!--Enlazado a los archivos css y javascript-->
+  <link rel="stylesheet" href="styleinicio.css">
+  <script defer src="javascript/javainicio.js"></script>
+</head>
+
+<header class="menu">
+  <input type="checkbox" id="check">
+  <label for="check"> <img src="images/logoUTU.png" alt="checkbox"> </label>
+  <nav class="submenu">
+    <img src="images/logoUTU.png" alt="" id="lgUTU">
+    <h3 id="nameSc">ESCUELA TECNICA MAESTRO SERGIO GONZALEZ OLAIZOLA</h3>
+
+    <ul id="menu-links">
+      <li><a href="https://pillbits.netlify.app/">Inicio</a></li>
+      <li><a href="#eventos">Eventos</a></li>
+      <li><a href="#novedades">Novedades</a></li>
+      <li><a href="#cursos">Cursos</a></li>
+      <li><a href="https://ceibal.edu.uy/">Ceibal</a></li>
+      <button onclick="bloqueaBody()" id="open">
+        <i class="icono-usuario"></i> Usuario
+      </button>
+
+      <!--Apartado que contiene el formulario de registro de usuario-->
+
+      <section id="modal_container" class="modal-container">
+        <article id="modal" class="modal">
+          <form action="">
+
+            <div class="wrapper">
+              <section class="container">
+                <!-- Botones para ingresar como invitado y como Administrador -->
+                <article on class="signup">INVITADO</article>
+                <article class="login">ADMINISTRADOR</article>
+                <article class="signup-form">
+                  <p id="info">
+                    ¡Bienvenidos a la página de la UTU - Escuela Técnica Maestro Sergio González Olaizola en Bella
+                    Unión, Artigas, Uruguay!
+                    Descubre una amplia variedad de cursos, mantente actualizado con nuestras novedades y eventos. En
+                    nuestra
+                    institución, brindamos educación de calidad para tu futuro.
+                    ¡Únete a nuestra comunidad educativa y crece con nosotros!
+                  </p>
+                  <div class="btn">
+                    <a href="index.html" id="btn-sesion">Ingresar como invitado</a>
+                  </div>
+                </article>
+                <article class="login-form">
+                  <input type="text" placeholder="Nombre de usuario" class="input"><br>
+                  <input type="password" placeholder="Contraseña" class="input"><br>
+                  <div class="btn">Ingresar</div>
+                </article>
+              </section>
+            </div>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <button id="close">Cerrar</button>
+          </form>
+        </article>
+      </section>
+      <script src="javascript/usu.js"></script>
+    </ul>
+  </nav>
+</header>
+<!--Apartado del cuerpo de la pagina-->
+
+<body id="bod">
+  <!--Menu de navegacion-->
+  <!-- Empieza la seccion de inicio -->
+  <section class="inicioprin">
+    <div style="height: 100px;"></div>
+    <img src="images/inicio.png" alt="" id="ini">
+    <div class="contenido">
+      <div class="inner">
+        <img src="images/bien venido.png" alt="" id="imagenimg">
+      </div>
+    </div>
+
+    <div style="height: 100px;"></div>
+  </section>
+  <section class="cursos inicio" id="cursos">
+    <img src="images/CURSOS.png" alt="" id="imgcursos">
+    <section id="container-slider">
+      <a href="javascript: funcionEjecutar('anterior');" class="arrowPrev"><i
+          class="fas fa-chevron-circle-left"></i></a>
+      <a href="javascript: funcionEjecutar('siguiente');" class="arrowNext"><i
+          class="fas fa-chevron-circle-right"></i></a>
+      <ul class="listslider">
+        <li><a itlist="itList_0" href="#" class="item-select-slid"></a></li>
+        <li><a itlist="itList_1" href="#"></a></li>
+        <li><a itlist="itList_2" href="#"></a></li>
+      </ul>
+      <ul id="slider">
+        <li
+          style="background-image: url(https://www.utu.edu.uy/sites/www.utu.edu.uy/files/styles/styles_galeria/public/generico/imagenes/2022-05/Agraria.jpg?h=09aa5902&itok=E1ToE6Jb); z-index:0; opacity: 1;">
+          <div class="content_slider">
+            <div>
+              <h2>AGRARIO</h2>
+              <p>Este curso capacita a los estudiantes en habilidades esenciales para la agricultura y ganadería.
+                Aprenden a realizar operaciones seguras y lógicas, colaborar con empresas del sector, promover la
+                calidad de productos y sostenibilidad, trabajar en equipo, y adoptar una perspectiva crítica sobre la
+                realidad agropecuaria del país.</p>
+              <a href="https://www.utu.edu.uy/agraria" target="_blank" class="btnSlider">Acceder</a>
+            </div>
+          </div>
+        </li>
+        <li
+          style="background-image: url(https://www.utu.edu.uy/sites/www.utu.edu.uy/files/styles/styles_galeria/public/generico/imagenes/2022-05/Informatica.JPG?h=bd97219a&itok=ftF8o891); ">
+          <div class="content_slider">
+            <div>
+              <h2>INFORMÁTICA</h2>
+              <p>Este curso forma a los estudiantes en habilidades informáticas esenciales, que incluyen el
+                mantenimiento de
+                hardware y software, la instalación de redes locales, el diseño y desarrollo de soluciones informáticas,
+                la
+                gestión de bases de datos y la identificación de riesgos de seguridad eléctrica. Los graduados estarán
+                preparados para desempeñar roles diversos en el campo de la tecnología de la información.</p>
+              <a href="https://www.utu.edu.uy/informatica" target="_blank" class="btnSlider">Acceder</a>
+            </div>
+          </div>
+        </li>
+        <li
+          style="background-image: url(https://www.utu.edu.uy/sites/www.utu.edu.uy/files/styles/styles_galeria/public/generico/imagenes/2022-05/Administraci%C3%B3n.jpg?h=18ca11a4&itok=1gTmAwDG); ">
+          <div class="content_slider">
+            <div>
+              <h2>ADMINISTRACIÓN Y COMERCIO</h2>
+              <p>Este curso de dos años forma a los estudiantes para desempeñar roles de Auxiliar Contable y Auxiliar
+                Administrativo Contable Calificado. Los graduados adquieren habilidades en gestión, comunicación
+                organizativa,
+                técnicas contables, toma de decisiones eficientes y comprensión de la economía a nivel micro y
+                macroeconómico.
+                Están preparados para trabajar en entornos contables y administrativos en una variedad de
+                organizaciones.</p>
+              <a href="https://www.utu.edu.uy/administracion-y-comercio" target="_blank" class="btnSlider">Acceder</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <div style="height: 100px;"></div>
+  </section>
+  <!-- Termina la seccion de cursos -->
+
+  <!-- Empiza la seccion Eventos -->
+  <section class="cursos eventos" id="eventos">
+    <div style="height: 100px;"></div>
+    <article>
+      <img src="images/EVENTOS (1).png" alt="">
+      <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+      <div class="main">
+        <span class="scroll-left scroll-chevron"></span>
+        <span class="scroll-right scroll-chevron"></span>
+        <section class="carousel">
+          <div class="carousel__container">
+            <div class="carousel-item">
+              <img class="carousel-item__img"
+                src="https://cdn.dribbble.com/users/6237882/screenshots/15270492/media/11863e6e28299b753fcff57b37793e98.png"
+                alt="People">
+              <div class="carousel-item__details">
+                <p class="carousel-item__details--title">Fogón de utu</p>
+                <p class="carousel-item__details--subtitle">07/09</p>
+                <div class="carousel-item__details--icons">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="carousel-item__img"
+                src="https://img.freepik.com/premium-photo/3d-trophy-cup-with-floating-gift-heart-geometric-shapes-purple-background-celebration-winn_147644-725.jpg?w=740"
+                alt="People">
+              <div class="carousel-item__details">
+                <p class="carousel-item__details--title">Bingo</p>
+                <p class="carousel-item__details--subtitle">08/10</p>
+                <div class="carousel-item__details--icons">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="carousel-item__img" src="https://images.ui8.net/uploads/ui8-7_1687613018255.jpg" alt="People">
+              <div class="carousel-item__details">
+                <p class="carousel-item__details--title">Semana del Corazon</p>
+                <p class="carousel-item__details--subtitle">24-30/09</p>
+                <div class="carousel-item__details--icons">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="carousel-item__img"
+                src="https://img.freepik.com/premium-photo/concept-back-school-learning-onlline-education-banners_356415-2305.jpg?w=740"
+                alt="People">
+              <div class="carousel-item__details">
+                <p class="carousel-item__details--title">Semana del Estudiante</p>
+                <p class="carousel-item__details--subtitle">16-22/09</p>
+                <div class="carousel-item__details--icons">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="carousel-item__img" src="https://images.ui8.net/uploads/detail-8_1685246692834.png"
+                alt="People">
+              <div class="carousel-item__details">
+                <p class="carousel-item__details--title">Expo</p>
+                <p class="carousel-item__details--subtitle">17/11</p>
+                <div class="carousel-item__details--icons">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="carousel-item__img"
+                src="https://i.pinimg.com/originals/3d/28/30/3d2830f396b067447b135942d7d1f8aa.jpg" alt="People">
+              <div class="carousel-item__details">
+                <p class="carousel-item__details--title">El Dia del Libro</p>
+                <p class="carousel-item__details--subtitle">23/04</p>
+                <div class="carousel-item__details--icons">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      </div>
+    </article>
+    <div style="height: 100px;"></div>
+  </section>
+  <!-- Termina seccion de Eventos -->
+  <!-- Empiza seccion de Novedades  -->
+
+  <section class="cursos novedades" id="novedades">
+    <div style="height: 150px;"></div>
+
+    <article>
+      <img src="images/NOVEDADES.png" alt="">
+
+      <section class="card">
+        <div class="text-content">
+          <h3>Fogon de UTU</h3>
+          <p id="texto">La Escuela celebra el dia de la independencia con un evento que incluya un Fogón. Habra juegos temáticos,
+            bailes tradicionales, y la elección de la china y Gaucho. Estudiantes, docentes y familias se unen para
+            crear y decorar un ambiente festivo. La celebración concluye con todos disfrutando de una torta elaborada
+            por el taller de gastronomía del centro educativo.</p>
+
+        </div>
+        <div class="visual">
+          <img
+            src="https://cdn.dribbble.com/users/6237882/screenshots/15270492/media/11863e6e28299b753fcff57b37793e98.png"
+            alt="" />
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="text-content">
+          <h3> Gran Bingo</h3>
+          <p id="texto">La UTU realiza un bingo para recaudar fondos, todos compartiendo una tarde de juego.</p>
+
+        </div>
+        <div class="visual">
+          <img
+            src="https://img.freepik.com/premium-photo/3d-trophy-cup-with-floating-gift-heart-geometric-shapes-purple-background-celebration-winn_147644-725.jpg?w=740"
+            alt="" />
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="text-content">
+          <h3>Semana del Corazón</h3>
+          <p id="texto">En esta semana, se realiza un taller de concientizacion, y educacion sobre la salud, una caminata por las
+            calles de bella union y otras actividades saludables.</p>
+
+        </div>
+        <div class="visual">
+          <img src="https://images.ui8.net/uploads/ui8-7_1687613018255.jpg" alt="" />
+        </div>
+      </section>
+    </article>
+
+
+    <div style="height: 100px;"></div>
+  </section>
+  <!-- termina seccion de Novedades -->
+  <!-- Empieza seccion de footer -->
+  <div class="footer-basic">
+    <div class="social-icons">
+      <a href="https://www.facebook.com/sergio.gonzalezolaizola/?locale=es_LA" class="icon"><i
+          class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com/utu_uruguay" class="icon"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/escuelatecnica1sgo/" class="icon"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p class="copyright">La Dirección General de Educación Técnico Profesional – <br>
+      UTU integra la Administración Nacional de Educación Pública (ANEP), ofreciendo educación técnica,
+      tecnológica de nivel medio y terciario, <br>
+      y formación profesional básica y superior en todo el territorio del Uruguay, sobre la base de los principios
+      de gratuidad, laicidad e igualdad. <br></p>
+  </div>
+</body>
+
+</html>

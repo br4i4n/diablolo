@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <br>
+    <div class="galeria">
+        <div class="imagenes">
+            <img src="images/bien venido.png" alt="Imagen 1" class="imagen">
+            <img src="images/bien venido.png" alt="Imagen 2" class="imagen">
+            <img src="images/bien venido.png" alt="Imagen 3" class="imagen">
+            <img src="images/bien venido.png" alt="Imagen 4" class="imagen">
+            <img src="images/bien venido.png" alt="Imagen 5" class="imagen"> 
+            <img src="images/bien venido.png" alt="Imagen 6" class="imagen"> 
+            <img src="images/bien venido.png" alt="Imagen 7" class="imagen">
+            <img src="images/bien venido.png" alt="Imagen 8" class="imagen">
+            <img src="images/bien venido.png" alt="Imagen 9" class="imagen">
+            <img src="images/bien venido.png" alt="Imagen 10" class="imagen">
+        </div>
+    </div>
+
+</body>
+</html>
+
+<style>
+
+body {
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.galeria {
+    width: 90%;
+    max-width: 1200px;
+    overflow: hidden;
+    margin: auto;
+    padding: 60px 0;
+    text-align: center;
+     background-color: #07bbf1;
+     border-radius: 0.5em;
+    
+}
+
+.imagenes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.imagenes img {
+    object-fit: cover;
+    display: block;
+    margin-bottom: 15px;
+    box-shadow: 0 0 6px rgb(0, 0, 0, 0.5);
+    cursor: pointer;
+    
+    max-width: 200px;
+    cursor: pointer;
+    margin: 5px;
+    transition: transform 0.2s;
+}
+
+.imagen.ampliada {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 9999;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.img-galeria:hover{
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const imagenes = document.querySelectorAll(".imagen");
+
+    imagenes.forEach((imagen) => {
+        imagen.addEventListener("click", function () {
+            this.classList.toggle("ampliada");
+        });
+    });
+});
+</script>

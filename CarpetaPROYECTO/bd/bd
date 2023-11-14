@@ -1,0 +1,283 @@
+
+
+CREATE TABLE: Se utiliza para crear una nueva tabla en la base de datos. Puede especificar el nombre de la tabla, los nombres de las columnas y sus tipos de datos, así como las restricciones.
+CREATE TABLE nombre_tabla (
+    columna1 tipo_de_dato1,
+    columna2 tipo_de_dato2,
+    ...
+);
+ALTER TABLE: Permite modificar una tabla existente, como agregar, eliminar o modificar columnas, cambiar el nombre de la tabla, agregar restricciones, etc.
+ALTER TABLE nombre_tabla
+ADD columna_nueva tipo_de_dato;
+DROP TABLE: Se utiliza para eliminar una tabla y todos sus datos de la base de datos de forma permanente.
+DROP TABLE nombre_tabla;
+CREATE INDEX: Crea un índice en una o más columnas de una tabla para mejorar el rendimiento de las consultas.
+CREATE INDEX nombre_indice
+ON nombre_tabla (columna);
+DROP INDEX: Elimina un índice existente de una tabla.
+DROP INDEX nombre_indice;
+CREATE VIEW: Permite crear una vista, que es una consulta almacenada que se comporta como una tabla virtual.
+CREATE VIEW nombre_vista AS
+SELECT columna1, columna2
+FROM nombre_tabla
+WHERE condición;
+DROP VIEW: Elimina una vista existente de la base de datos.
+DROP VIEW nombre_vista;
+CREATE DATABASE: Crea una nueva base de datos en el sistema de gestión de bases de datos (DBMS) específico.
+CREATE DATABASE nombre_base_de_datos;
+DROP DATABASE: Elimina una base de datos y todos sus objetos relacionados, como tablas, vistas, etc.
+DROP DATABASE nombre_base_de_datos;
+
+
+            Crear la base de datos
+
+            CREATE TABLE `administrativo` (
+                  `Cargo` varchar(50) NOT NULL,
+                  `Horas` varchar(45) NOT NULL,
+                  `Escalafon` varchar(45) NOT NULL,
+                  `Grado` varchar(45) NOT NULL,
+                  `Persona_CI` int(11) NOT NULL,
+                  PRIMARY KEY (`Persona_CI`),
+                  UNIQUE KEY `Cargo_UNIQUE` (`Cargo`),
+                  KEY `fk_Administrativo_Persona1_idx` (`Persona_CI`),
+                  CONSTRAINT `fk_Administrativo_Persona1` FOREIGN KEY (`Persona_CI`) REFERENCES `persona` (`CI`) ON DELETE NO ACTION ON UPDATE NO ACTION
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+           
+                CREATE TABLE `alumno` (
+                  `Fecha de Nacimiento` varchar(45) NOT NULL,
+                  `Persona_CI` int(11) NOT NULL,
+                  PRIMARY KEY (`Persona_CI`),
+                  UNIQUE KEY `Fecha de Nacimiento_UNIQUE` (`Fecha de Nacimiento`),
+                  KEY `fk_Alumno_Persona1_idx` (`Persona_CI`),
+                  CONSTRAINT `fk_Alumno_Persona1` FOREIGN KEY (`Persona_CI`) REFERENCES `persona` (`CI`) ON DELETE NO ACTION ON UPDATE NO ACTION
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+             
+                CREATE TABLE `asigna` (
+                  `grupo` varchar(45) NOT NULL,
+                  `Persona_CI` int(11) NOT NULL,
+                  `Asignatura_CodigoA` int(11) NOT NULL,
+                  KEY `fk_Asigna_Persona1_idx` (`Persona_CI`),
+                  KEY `fk_Asigna_Asignatura1_idx` (`Asignatura_CodigoA`),
+                  CONSTRAINT `fk_Asigna_Asignatura1` FOREIGN KEY (`Asignatura_CodigoA`) REFERENCES `asignatura` (`CodigoA`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+                  CONSTRAINT `fk_Asigna_Persona1` FOREIGN KEY (`Persona_CI`) REFERENCES `persona` (`CI`) ON DELETE NO ACTION ON UPDATE NO ACTION
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+           
+                CREATE TABLE `asignatura` (
+                  `CodigoA` int(11) NOT NULL AUTO_INCREMENT,
+                  `Nombre` varchar(45) NOT NULL,
+                  `Area` varchar(45) NOT NULL,
+                  PRIMARY KEY (`CodigoA`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+           
+                CREATE TABLE `asiste` (
+                  `Asignatura_CodigoA` int(11) NOT NULL,
+                  `Persona_CI` int(11) NOT NULL,
+                  KEY `fk_Asiste_Asignatura1_idx` (`Asignatura_CodigoA`),
+                  KEY `fk_Asiste_Persona1_idx` (`Persona_CI`),
+                  CONSTRAINT `fk_Asiste_Asignatura1` FOREIGN KEY (`Asignatura_CodigoA`) REFERENCES `asignatura` (`CodigoA`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+                  CONSTRAINT `fk_Asiste_Persona1` FOREIGN KEY (`Persona_CI`) REFERENCES `persona` (`CI`) ON DELETE NO ACTION ON UPDATE NO ACTION
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+           
+                CREATE TABLE `contiene` (
+                  `grado` varchar(45) NOT NULL,
+                  `Asignatura_CodigoA` int(11) NOT NULL,
+                  `Curso_CodigoC` int(11) NOT NULL,
+                  `Institucion_CodigoI` int(11) NOT NULL,
+                  `totalHoras` int(11) NOT NULL,
+                  `ProgramaCurricular` blob NOT NULL,
+                  KEY `fk_contiene_Asignatura1_idx` (`Asignatura_CodigoA`),
+                  KEY `fk_contiene_Curso1_idx` (`Curso_CodigoC`),
+                  KEY `fk_contiene_Institucion1_idx` (`Institucion_CodigoI`),
+                  CONSTRAINT `fk_contiene_Asignatura1` FOREIGN KEY (`Asignatura_CodigoA`) REFERENCES `asignatura` (`CodigoA`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+                  CONSTRAINT `fk_contiene_Curso1` FOREIGN KEY (`Curso_CodigoC`) REFERENCES `curso` (`CodigoC`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+                  CONSTRAINT `fk_contiene_Institucion1` FOREIGN KEY (`Institucion_CodigoI`) REFERENCES `institucion` (`CodigoI`) ON DELETE NO ACTION ON UPDATE NO ACTION
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+           
+                CREATE TABLE `curso` (
+                  `CodigoC` int(11) NOT NULL AUTO_INCREMENT,
+                  `Tipo` varchar(45) NOT NULL,
+                  `Nombre` varchar(45) NOT NULL,
+                  `Descripcion` varchar(45) NOT NULL,
+                  PRIMARY KEY (`CodigoC`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+           
+                CREATE TABLE `dicta` (
+                  `Asignatura_CodigoA` int(11) NOT NULL,
+                  `Persona_CI` int(11) NOT NULL,
+                  KEY `fk_Dicta_Asignatura1_idx` (`Asignatura_CodigoA`),
+                  KEY `fk_Dicta_Persona2_idx` (`Persona_CI`),
+                  CONSTRAINT `fk_Dicta_Asignatura1` FOREIGN KEY (`Asignatura_CodigoA`) REFERENCES `asignatura` (`CodigoA`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+                  CONSTRAINT `fk_Dicta_Persona2` FOREIGN KEY (`Persona_CI`) REFERENCES `persona` (`CI`) ON DELETE NO ACTION ON UPDATE NO ACTION
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+           
+                CREATE TABLE `docencia indirecta` (
+                  `Horas` varchar(45) NOT NULL,
+                  `Turno` varchar(45) NOT NULL,
+                  `Persona_CI` int(11) NOT NULL,
+                  PRIMARY KEY (`Persona_CI`),
+                  UNIQUE KEY `Persona_CI_UNIQUE` (`Persona_CI`),
+                  KEY `fk_Docencia Indirecta_Persona1_idx` (`Persona_CI`),
+                  CONSTRAINT `fk_Docencia Indirecta_Persona1` FOREIGN KEY (`Persona_CI`) REFERENCES `persona` (`CI`) ON DELETE NO ACTION ON UPDATE NO ACTION
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+           
+                CREATE TABLE `docente` (
+                  `Horas` varchar(45) NOT NULL,
+                  `Persona_CI` int(11) NOT NULL,
+                  `Docentecol` varchar(45) DEFAULT NULL,
+                  PRIMARY KEY (`Persona_CI`),
+                  UNIQUE KEY `Persona_CI_UNIQUE` (`Persona_CI`),
+                  KEY `fk_Docente_Persona1_idx` (`Persona_CI`),
+                  CONSTRAINT `fk_Docente_Persona1` FOREIGN KEY (`Persona_CI`) REFERENCES `persona` (`CI`) ON DELETE NO ACTION ON UPDATE NO ACTION
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+           
+                CREATE TABLE `evento` (
+                  `idEvento` int(11) NOT NULL AUTO_INCREMENT,
+                  `Nombre` varchar(45) NOT NULL,
+                  `Descripcion` varchar(1000) NOT NULL,
+                  `Horario` varchar(45) NOT NULL,
+                  `Fecha` varchar(45) NOT NULL,
+                  `Institucion_CodigoI` int(11) NOT NULL,
+                  PRIMARY KEY (`idEvento`),
+                  KEY `fk_Evento_Institucion1_idx` (`Institucion_CodigoI`),
+                  CONSTRAINT `fk_Evento_Institucion1` FOREIGN KEY (`Institucion_CodigoI`) REFERENCES `institucion` (`CodigoI`) ON DELETE NO ACTION ON UPDATE NO ACTION
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+           
+                CREATE TABLE `informe estadistico` (
+                  `CodigoIE` int(11) NOT NULL,
+                  `Fecha` varchar(45) NOT NULL,
+                  `TotalADM` int(11) NOT NULL,
+                  `TotalDI` int(11) NOT NULL,
+                  `TotalF` int(11) NOT NULL,
+                  `Horario` varchar(45) NOT NULL,
+                  `AL_T1` int(11) NOT NULL,
+                  `AL_T3` varchar(45) NOT NULL,
+                  `AL_T4` int(11) NOT NULL,
+                  `AL_T5` int(11) NOT NULL,
+                  `Institucion_CodigoI` int(11) NOT NULL,
+                  PRIMARY KEY (`CodigoIE`),
+                  KEY `fk_Informe Estadistico_Institucion1_idx` (`Institucion_CodigoI`),
+                  CONSTRAINT `fk_Informe Estadistico_Institucion1` FOREIGN KEY (`Institucion_CodigoI`) REFERENCES `institucion` (`CodigoI`) ON DELETE NO ACTION ON UPDATE NO ACTION
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+           
+                CREATE TABLE `institucion` (
+                  `CodigoI` int(11) NOT NULL AUTO_INCREMENT,
+                  `horarios` varchar(45) NOT NULL,
+                  `Ubicacion` varchar(45) NOT NULL,
+                  `Nombre` varchar(45) NOT NULL,
+                  PRIMARY KEY (`CodigoI`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+           
+                CREATE TABLE `persona` (
+                  `CI` int(11) NOT NULL,
+                  `Nombre` varchar(45) NOT NULL,
+                  `Admin` tinyint(4) NOT NULL,
+                  `E-Mail` varchar(100) DEFAULT NULL,
+                  `Institucion_CodigoI` int(11) NOT NULL,
+                  PRIMARY KEY (`CI`),
+                  UNIQUE KEY `CI_UNIQUE` (`CI`),
+                  KEY `fk_Persona_Institucion1_idx` (`Institucion_CodigoI`),
+                  CONSTRAINT `fk_Persona_Institucion1` FOREIGN KEY (`Institucion_CodigoI`) REFERENCES `institucion` (`CodigoI`) ON DELETE NO ACTION ON UPDATE NO ACTION
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+           
+                CREATE TABLE `repositorio` (
+                  `CodigoR` int(11) NOT NULL AUTO_INCREMENT,
+                  `Archivo` blob NOT NULL,
+                  `Descripcion` varchar(45) NOT NULL,
+                  `Institucion_CodigoI` int(11) NOT NULL,
+                  PRIMARY KEY (`CodigoR`),
+                  KEY `fk_Repositorio_Institucion1_idx` (`Institucion_CodigoI`),
+                  CONSTRAINT `fk_Repositorio_Institucion1` FOREIGN KEY (`Institucion_CodigoI`) REFERENCES `institucion` (`CodigoI`) ON DELETE NO ACTION ON UPDATE NO ACTION
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+           
+                CREATE TABLE `telefono` (
+                  `Institucion_CodigoI` int(11) NOT NULL,
+                  `telefono` int(11) NOT NULL,
+                  KEY `fk_table1_Institucion_idx` (`Institucion_CodigoI`),
+                  CONSTRAINT `fk_table1_Institucion` FOREIGN KEY (`Institucion_CodigoI`) REFERENCES `institucion` (`CodigoI`) ON DELETE NO ACTION ON UPDATE NO ACTION
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+
+Consultas SQL
+
+
+1- Obtener el listado de estudiantes por curso.
+SELECT C.Nombre AS NombreCurso, A.Nombre AS NombreEstudiante
+FROM Curso C
+INNER JOIN Alumno A ON C.CodigoC = A.CodigoC;
+2- Obtener el número de estudiantes en un curso específico.
+SELECT COUNT(*) AS NumeroDeEstudiantes
+FROM Alumno
+WHERE CodigoC = tu_codigo_de_curso;
+3- Listar el nombre de la institución.
+SELECT Nombre
+FROM Institucion;
+4- Obtener información de un curso, sus asignaturas y cuántos alumnos asisten.
+SELECT
+    Curso.CodC AS CodigoCurso,
+    Curso.Descripcion AS DescripcionCurso,
+    Asignatura.CodigoA AS CodigoAsignatura,
+    Asignatura.Nombre AS NombreAsignatura,
+    COUNT(Alumno.CI) AS TotalAlumnosAsisten
+FROM Curso
+JOIN Contiene ON Curso.CodC = Contiene.CodigoC
+JOIN Asignatura ON Contiene.CodigoA = Asignatura.CodigoA
+LEFT JOIN Alumno ON Curso.CodC = Alumno.CI
+WHERE Curso.CodC = "código del curso"
+GROUP BY Curso.CodC, Curso.Descripcion, Asignatura.CodigoA, Asignatura.Nombre;
+5- Obtener el programa curricular de un área específica.
+SELECT CodigoA, Nombre, ProgramaCurricular
+FROM Asignatura
+WHERE Area = 'esto es un ejemplo, podría ser el área de base de datos”';
+6- Obtener los eventos de la institución por nombre y fecha.
+La base de datos no almacena datos sobre el horario y la fecha de los eventos ya que los eventos se crean directamente en el html.
+7- Modificar un campo de persona
+UPDATE personas
+SET nombre = 'NuevoNombre'
+WHERE id_persona = tuID;
+8- Alterar alguna información de la institución
+UPDATE institucion
+SET direccion = 'NuevaDireccion'
+WHERE id_institucion = tuID;
+9- Obtener el nombre de los adscriptos asociados a un grupo
+SELECT adscriptos.nombre
+FROM adscriptos
+JOIN grupo_adscriptos ON adscriptos.id_adscripto = grupo_adscriptos.id_adscripto
+WHERE grupo_adscriptos.id_grupo = tuID;
+
+10- Buscar un docente de un curso en particular
+SELECT D.Nombre AS NombreDocente
+FROM Docente D
+INNER JOIN Dicta ON D.Persona_CI = Dicta.Persona_CI
+WHERE Dicta.Curso_CodigoC = aca iria el codigo del curso;
+
+11- Obtener el nombre y el apellido de los docentes que tienen roles de administrador.
+SELECT D.Nombre AS NombreDocente, D.Apellido AS ApellidoDocente
+FROM Docente D
+INNER JOIN Administrativo A ON D.Persona_CI = A.Persona_CI;
+
+12- Borrar un curso al cual se ha solicitado la baja.
+DELETE FROM Curso
+WHERE CodigoC = el codigo del curso al cual se va dar de baja;
+
+13- Borrar un estudiante que no pertenece más al centro.
+DELETE FROM Alumno
+WHERE CI = ‘CI el estudiante que se desea borrar’;
+
+14- Borrar un docente que no está asociado a un curso en particular.
+DELETE FROM Docente
+WHERE CI = ‘CI docente_a_borrar’ AND CI NOT (SELECT DISTINC CI FROM DICTA);
+15- Obtener la cantidad de docentes de la institución incluyendo todos los funcionarios.
+SELECT COUNT(*) AS CantidadDocentes
+FROM Docente
+UNION
+SELECT COUNT(*) AS CantidadFuncionarios
+FROM Administrativos
+16- Obtener turno y su respectivo horario de un curso o área en particular.
+La base de datos no almacena datos sobre el horario y el turno de los cursos.
+17- Contar alumnos por curso
+SELECT Curso.CodC AS CodigoCurso, Curso.Descripcion AS DescripcionCurso, COUNT(Alumno.CI) AS TotalAlumnos
+FROM Curso
+LEFT JOIN Alumno ON Curso.CodC = Alumno.CI
+GROUP BY Curso.CodC, Curso.Descripcion;
+18- Mostrar adscrito de el turno
+La base de datos no almacena datos sobre el turno de los adscritos.

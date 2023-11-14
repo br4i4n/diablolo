@@ -1,0 +1,239 @@
+.formulario label {
+    border-radius: 150px;
+    padding: 5px 70px;
+    margin-bottom: 5px;
+}
+
+.formulario input {
+    border-radius: 13px;
+    padding: 4px 60px;
+    margin-bottom: 5px;
+
+}
+
+/*nuevo*/
+#btnInicio, #btnCrear, #submit{
+    padding: 1vh;
+    border-radius: 1vh;
+    background-color: #ffffff;
+    text-decoration: none;
+    border: #fff 1px solid;
+    color: rgb(0, 0, 0);
+    font-size: 2vh;
+    margin-right: 1vw;
+    margin-left: 1vw;
+}
+
+.botones{
+    text-align: center;
+}
+
+.botones a, .botones input{
+    font-family: "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif";
+}
+/*fin nuevo*/
+
+.imagen-menu {
+    height: 50px;
+    width: auto;
+    padding: 10px;
+}
+
+
+.imagen {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: calc(70vh - 70px);
+   
+}
+
+.imagen img {
+    max-width: 60%;
+    height: auto;
+    margin-right: 500px;
+}
+
+
+.imagen h1 {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 20px;
+  
+}
+
+.todo {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: right;
+    margin-top: 190px;
+    margin-left: 20px;
+    position: relative;
+    
+}
+
+.todo p {
+    position: absolute;
+    top: -45px;
+    left: 820px;
+    margin: 0;
+
+}
+
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: -20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #009FE3;
+    position: absolute;
+    left: 820px;
+    
+}
+
+.menu img {
+    height: 50px;
+    height: 50px;
+    align-items: left;
+    padding-left: 0px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background-color: #009FE3;
+    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+.menu ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    height: 70px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.menu a:hover {
+    background-color: #ddd;
+}
+
+.img-form-container img {
+    max-width: 100%;
+    margin-right: 20px;
+}
+
+header {
+    width: 146px;
+    height: 19px;
+    color: #009FE3;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+body {
+    background-image: url("Captura\ de\ pantalla\ 2023-08-16\ 170045.png");
+    background-size: cover;
+
+}
+
+#imagen {
+    width: 100%;
+    height: 100%
+}
+
+h1 {
+    width: 806px;
+    height: 87px;
+
+    color: #FFF;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #009FE3;
+    text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    color: #FFF;
+}
+
+
+footer {
+    align-self: flex-end; 
+    color: var(--white); 
+    font-family: var(--font-family-inter); 
+    font-size: var(--font-size-m); 
+    font-weight: 700; 
+    letter-spacing: 0; 
+    line-height: normal; 
+    min-height: 70px; 
+    width: 991px; 
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #175EAE;
+    padding: 15px;
+    top: 569px;
+    text-align: center;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: #ffffff;
+    ;
+}
+
+.footer {
+    left: 0;
+
+}
+
+
+.p {
+
+    padding-left: 50px;
+    text-align: left;
+    margin-top: 0;
+    padding-left: 20px;
+}
